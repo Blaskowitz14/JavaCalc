@@ -49,7 +49,7 @@ public class Converter {
     }
     public static String convertArabicNumber(int arabicNumber) {
         Map<Integer, String> sortedMap = new TreeMap<>(Comparator.reverseOrder());
-        sortedMap.putAll(swapKeysWithValues(ROMAN_NUMBERS_MAP));
+        sortedMap.putAll(reverseMapEntries(ROMAN_NUMBERS_MAP));
 
         String convertedNumber = "";
 
