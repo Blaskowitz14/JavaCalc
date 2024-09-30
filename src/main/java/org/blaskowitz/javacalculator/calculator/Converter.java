@@ -73,7 +73,7 @@ public class Converter {
         }
         return input;
     }
-    private static Map<Integer, String> swapKeysWithValues(Map<String, Integer> inputMap) {
+    private static Map<Integer, String> reverseMapEntries(Map<String, Integer> inputMap) {
         Map<Integer, String> reversedMap = new HashMap<>();
         for (Map.Entry<String, Integer> entry : inputMap.entrySet()) {
             reversedMap.put(entry.getValue(), entry.getKey());
