@@ -1,9 +1,13 @@
-package org.blaskowitz.javacalculator.calculator.datainteraction;
-import org.blaskowitz.javacalculator.calculator.OperandSystem;
+package org.blaskowitz.javacalculator.calculator;
 import org.blaskowitz.javacalculator.calculator.exception.UnsupportedOperand;
 import org.blaskowitz.javacalculator.calculator.exception.UnsupportedOperationFormat;
 
 public class Validator {
+    public static OperandSystem validateData(String[] input) {
+        checkQuantity(input);
+        checkOperandSystemsEquality(input);
+        return checkOperandsSize(input);
+    }
     private static void checkQuantity(String[] input) {
         if(input.length != 3) {
             throw new UnsupportedOperationFormat();
@@ -16,7 +20,7 @@ public class Validator {
             throw new UnsupportedOperand("Системы счисления операндов не совпадают");
         }
     }
-    private static OperandSystem operandsSizeCheck(String[] input) {
+    private static OperandSystem checkOperandsSize(String[] input) {
         String leftOperand = input[0];
         String rightOperand = input[2];
         OperandSystem system = OperandSystem.getSystem(leftOperand);
@@ -32,10 +36,5 @@ public class Validator {
                 }
         }
         throw new UnsupportedOperand();
-    }
-    public static OperandSystem validateData(String[] input) {
-        checkQuantity(input);
-        checkOperandSystemsEquality(input);
-        return operandsSizeCheck(input);
     }
 }

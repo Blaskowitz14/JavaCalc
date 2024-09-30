@@ -1,8 +1,6 @@
 package org.blaskowitz.javacalculator.calculator;
 
-import org.blaskowitz.javacalculator.calculator.datainteraction.Converter;
 import org.blaskowitz.javacalculator.calculator.exception.UnsupportedOperator;
-import org.blaskowitz.javacalculator.calculator.datainteraction.Validator;
 
 public class AppService {
     public String handleUserInput(String userInput) {
@@ -18,7 +16,6 @@ public class AppService {
         String leftOperand = processedInput[0];
         Operator operator = Operator.getKey(processedInput[1]);
         String rightOperand = processedInput[2];
-
         return switch (operator) {
             case PLUS -> Calculator.add(leftOperand, rightOperand);
             case MINUS -> Calculator.subtract(leftOperand, rightOperand);
