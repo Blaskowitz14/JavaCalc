@@ -35,42 +35,42 @@ public class TestAppService {
     }
 
     @Test
-    public void throwException_UnknownOperator() {
+    public void unknownOperator_ThrowsException() {
         String testValue = "x ( x";
         UnsupportedOperator thrown = Assertions.assertThrows(UnsupportedOperator.class, () -> {
             service.handleUserInput(testValue);
         });
     }
     @Test
-    public void throwException_NonExistentRomanNumber() {
+    public void nonExistentRomanNumber_ThrowsException() {
         String testValue = "ZZZZZ + VVVVV";
         UnsupportedOperand thrown = Assertions.assertThrows(UnsupportedOperand.class, () -> {
             service.handleUserInput(testValue);
         });
     }
     @Test
-    public void throwsException_OperandsSystemsNotEqual() {
+    public void operandsSystemsNotEqual_ThrowsException() {
         String testValue = "9 + X";
         UnsupportedOperand thrown = Assertions.assertThrows(UnsupportedOperand.class, () -> {
             service.handleUserInput(testValue);
         });
     }
     @Test
-    public void throwException_UnexpectedOperandsSize() {
+    public void unexpectedOperandsSize_ThrowException() {
         String testValue = "XII + C";
         UnsupportedOperand thrown = Assertions.assertThrows(UnsupportedOperand.class, () -> {
             service.handleUserInput(testValue);
         });
     }
     @Test
-    public void throwException_WrongInputFormat() {
+    public void wrongInputFormat_ThrowException() {
         String testValue = "x + x + x";
         UnsupportedOperationFormat thrown = Assertions.assertThrows(UnsupportedOperationFormat.class, () -> {
             service.handleUserInput(testValue);
         });
     }
     @Test
-    public void throwException_DivisionByZero() {
+    public void divisionByZero_ThrowException() {
         String testValue = "2 / 0";
         ArithmeticException thrown = Assertions.assertThrows(ArithmeticException.class, () -> {
             service.handleUserInput(testValue);
